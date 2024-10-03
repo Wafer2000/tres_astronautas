@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "618633157773",
+    "project_id": "tre-sastronautas",
+    "storage_bucket": "tre-sastronautas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618633157773:android:d688a447487cdf2e3e96c4",
+        "android_client_info": {
+          "package_name": "com.example.tres_astronautas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ99c2RA4H6B_ZyQQiw5CqX7lyHJH1rPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
