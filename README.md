@@ -1,16 +1,59 @@
-# tres_astronautas
+# Planet Image Display
 
-A new Flutter project.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-## Getting Started
+## Table of Contents
 
-This project is a starting point for a Flutter application.
+- [Project Description](#project-description)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-A few resources to get you started if this is your first Flutter project:
+## Project Description
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**Planet Image Display** is a Flutter-based mobile application that displays images of planets fetched from external URLs. The app demonstrates efficient image loading, error handling, and offers a default image fallback when a request fails. It uses `http` for network requests and asynchronous operations to ensure smooth user experience.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features
+
+- **Asynchronous Image Loading**: Fetches images from provided URLs.
+- **Error Handling**: Displays a default image when the image cannot be loaded.
+- **Responsive UI**: Adapts to different screen sizes and orientations.
+- **Local Placeholder Image**: Shows a local image when external image loading fails.
+
+## Requirements
+
+- **Flutter SDK**: 3.0.0 or higher.
+- **Dart SDK**: 2.17.0 or higher.
+- **http Package**: Used for making HTTP requests.
+
+## Installation
+
+Follow these steps to set up the project locally:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Wafer2000/tres_astronautas.git
+   cd tres_astronautas
+
+2. **Install Dependencies**:
+   ```bash
+   flutter pub get
+
+3. **Run the Application**: To run the application on your device/emulator:
+   ```bash
+   flutter run
+
+### Instrucciones para usar el README:
+
+1. **Copia el contenido anterior**.
+2. **Ve a tu repositorio** en GitHub (https://github.com/Wafer2000/tres_astronautas.git).
+3. **Crea un nuevo archivo** llamado `README.md` en la raíz del repositorio.
+4. **Pega el contenido** que copiaste en el nuevo archivo.
+5. **Guarda los cambios** y verifica que el README se muestre correctamente en tu repositorio.
+
+Si necesitas más ayuda o ajustes, ¡hazmelo saber!
+
