@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tres_astronautas/data/models/planets.dart';
-import 'package:tres_astronautas/presentation/widgets/planet_image.dart';
 
 class PlanetDetails extends StatelessWidget {
   final Planets planet;

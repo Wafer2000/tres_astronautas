@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tres_astronautas/presentation/widgets/search_bar.dart';
-import 'package:tres_astronautas/presentation/widgets/planet_tile.dart';
 import '../../data/models/planets.dart';
 import '../../data/services/planet_service.dart';
+import '../widgets/background_container.dart';
+import '../widgets/error_message.dart';
+import '../widgets/loading_indicator.dart';
 
 class PlanetsPage extends StatefulWidget {
   const PlanetsPage({super.key});
@@ -33,57 +34,30 @@ class PlanetsPageState extends State<PlanetsPage> {
       future: futurePlanets,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: SizedBox(
-              width: 24,
-              height: 24,
-              child: CircularProgressIndicator(color: Colors.white),
-            ),
-          );
+          return const LoadingIndicator();
         } else if (snapshot.hasError) {
-          return const Center(child: Text('Error al cargar los planetas. Por favor, intenta de nuevo más tarde.'));
+          return const ErrorMessage();
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
           return const Center(child: Text('No se encontraron planetas'));
         }
 
-        // Filtrar los planetas
-        final filteredPlanets = snapshot.data!.where((planet) {
-          return planet.name.toLowerCase().contains(filter.toLowerCase()) ||
-                 planet.massKg.toString().contains(filter) ||
-                 planet.orbitalDistanceKm.toString().contains(filter);
-        }).toList();
+        final filteredPlanets = _filterPlanetList(snapshot.data!);
+        Size size = MediaQuery.of(context).size;
 
-        return Scaffold(
-          backgroundColor: Colors.black,
-          appBar: AppBar(
-            title: Center(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                child: Text(
-                  'Listado de Planetas'.toUpperCase(),
-                  style: const TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            backgroundColor: Colors.black,
-            bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(60),
-              child: CustomSearchBar(onSearch: _filterPlanets),
-            ),
-          ),
-          body: Center(
-            child: SizedBox(
-              width: 500,
-              child: ListView.builder(
-                itemCount: filteredPlanets.length,
-                itemBuilder: (context, index) {
-                  return PlanetTile(planet: filteredPlanets[index]);
-                },
-              ),
-            ),
-          ),
+        return BackgroundContainer(
+          size: size,
+          filteredPlanets: filteredPlanets,
+          onSearch: _filterPlanets,
         );
       },
     );
+  }
+
+  List<Planets> _filterPlanetList(List<Planets> planets) {
+    return planets.where((planet) {
+      return planet.name.toLowerCase().contains(filter.toLowerCase()) ||
+          planet.massKg.toString().contains(filter) ||
+          planet.orbitalDistanceKm.toString().contains(filter);
+    }).toList();
   }
 }

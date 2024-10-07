@@ -59,8 +59,11 @@ class PlanetDetailPage extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        PlanetImage(image: planetDetails.image),
-                const SizedBox(height: 20),
+                        PlanetImage(
+                          image: planetDetails.image,
+                          planetName: planetDetails.name,
+                        ),
+                        const SizedBox(height: 20),
                         PlanetDetails(planet: planetDetails),
                       ],
                     ), // Usar el nuevo widget
